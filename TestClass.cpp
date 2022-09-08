@@ -18,8 +18,6 @@ SolarPanel 	  cell2(PIN_PANEL_2);
 PhotoResistor PR1(PIN_LIGHT_RESISTOR_1);
 PhotoResistor PR2(PIN_LIGHT_RESISTOR_2);
 
-//const int chipSelect = 10;	//SD Card
-
 File 		myFile;
 RTC_DS1307  rtc;
 char 		TimeBuffer[20] = "";   //Full date and time stamp
@@ -33,7 +31,6 @@ void setup()
 
 	Serial.begin(9600);
 
-
 	if (! rtc.begin()) {
 		Serial.println("Couldn't find RTC");
 		count = 0;
@@ -42,10 +39,11 @@ void setup()
 	else
 		Serial.println("RTC begin is OK!");
 
+
 	if (! rtc.isrunning()) {
 		Serial.println("RTC is NOT running!");
 	    // Set the date and time at compile time
-	    //rtc.adjust(DateTime(__DATE__, __TIME__));
+	    rtc.adjust(DateTime(__DATE__, __TIME__));
 	}
 	else
 		Serial.println("RTC is not running!");
@@ -53,12 +51,12 @@ void setup()
 
 	Serial.print("Initializing SD card...");
 	if (!SD.begin(SD_CHIP_SELECT)) {
-	  Serial.println("initialization failed!");
+	  Serial.println("Initialization failed!");
 	  count = 0;
 	  while (count++ < 1000);
 	}
 	else
-	  Serial.println("initialization done.");
+	  Serial.println("Initialization done.");
 }
 
 // The loop function is called in an endless loop
@@ -66,65 +64,60 @@ void loop()
 {
 	DateTime now 		= rtc.now();
 	String 	 fileName 	= "SolarLog.csv";
-	String 	 dataToSave = "";
+	String 	 dataToSD   = "";
 	VALUE_T  data;
 
 	Clock();
-	Serial.println(TimeBuffer);
 
 	data.panel1 = cell1.read();
 	data.panel2 = cell2.read();
 	data.photoResistor1 = PR1.read();
 	data.photoResistor2 = PR2.read();
 
-	//showValue(data);
+	//showValues(data);
 
-	setStringToSave(&dataToSave, &data);
-	Serial.print("valori... "); Serial.println(dataToSave);
+	setStringToSave(&dataToSD, &data);
+	Serial.println(dataToSD);
 
-/*
+
     // open a new file and immediately close it:
-    Serial.print("Opening ");Serial.print(fileName);Serial.println("...");
+    //Serial.print("Opening ");
+    Serial.print(fileName); //Serial.println("...");
 
     myFile = SD.open(fileName, FILE_WRITE);
 
-    // if the file is available, write to it:
-    if (myFile) {
-      myFile.println(dataToSave);
+    if (myFile)
+    {
+      myFile.println(dataToSD);
       myFile.close();
-      // print to the serial port too:
-      Serial.println(dataToSave);
+      //Serial.println(dataToSD);
     }
-    // if the file isn't open, pop up an error:
-    else {
+    else
+    {
       Serial.print("error opening "); Serial.println(fileName);
     }
-*/
-
-	Serial.write("fine.");
 
 	delay(FREQ_READ);
 }
 
-void Clock() {
+void Clock()
+{
      DateTime now = rtc.now(); //Read the current date-time from the RTC
      sprintf(TimeBuffer, "%04d-%02d-%02d %02d:%02d:%02d", now.year(), now.month(), now.day(), now.hour(), now.minute(), now.second());
 }
 
 void setStringToSave(String *dataToSave, const VALUE_T *data)
 {
-	//String outSD = "";
-	*dataToSave = String(TimeBuffer);				*dataToSave +=  ";";
-	*dataToSave += String(data->panel1, 2); 		*dataToSave +=  ";";
-	*dataToSave += String(data->photoResistor1);	*dataToSave +=  ";";
+	*dataToSave = String(TimeBuffer);				*dataToSave +=  ";  ";
+	*dataToSave += String(data->panel1, 2); 		*dataToSave +=  ";  ";
+	*dataToSave += String(data->photoResistor1);	*dataToSave +=  ";  ";
 
-	*dataToSave += String(data->panel2, 2); 		*dataToSave +=  ";";
+	*dataToSave += String(data->panel2, 2); 		*dataToSave +=  ";  ";
 	*dataToSave += String(data->photoResistor2);
-
-	//dataToSave = outSD;
 }
 
-void showValue(VALUE_T data){
+void showValues(VALUE_T data)
+{
 	Serial.println();
 	Serial.println("cell1 : ");
 	Serial.print("  cell  : ");	Serial.println( data.panel1, 3);

@@ -24,7 +24,7 @@ typedef struct {
 
 void Clock();
 void setStringToSave(String *dataToSave, const VALUE_T *data);
-void showValue(VALUE_T data);
+void showValues(VALUE_T data);
 
 
 

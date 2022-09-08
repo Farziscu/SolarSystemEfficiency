@@ -12,7 +12,7 @@
 
 #define NAME_LENGHT			20
 #define DEFAULT_PIN_PANEL	PIN_A0
-#define MAX_VOLTAGE_VALUE	5.07
+#define MAX_VOLTAGE_VALUE	1.5 //5.07
 
 
 class SolarPanel
@@ -26,10 +26,12 @@ class SolarPanel
     	inline 	SolarPanel( void ) { panelInputPin = DEFAULT_PIN_PANEL; };
     			SolarPanel( uint8_t pinInput);
 
+    	inline 	void begin( void ) { strcpy(name, ""); };
     	inline 	void begin( char *pName) { strcpy(name, pName); };
     			void ShowData( void );
 
-    	inline 	float read() { return (analogRead(panelInputPin) * MAX_VOLTAGE_VALUE / 1023.0); }
+    	//inline float read() { return (analogRead(panelInputPin) * MAX_VOLTAGE_VALUE / 10230.0); }
+    			float read( void );
 
 };
 

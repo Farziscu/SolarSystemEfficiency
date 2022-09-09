@@ -35,6 +35,9 @@ CPP_DEPS :=
 
 # Every subdirectory with source files must be described here
 SUBDIRS := \
+MemoryUsage-2.21.1\examples\FreeRam \
+MemoryUsage-2.21.1\examples\Stack \
+MemoryUsage-2.21.1\src \
 MyLibrary \
 . \
 core\core \

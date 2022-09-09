@@ -27,6 +27,7 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SolarSystemEfficiency/libraries/Wire/src}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SolarSystemEfficiency/core/core}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SolarSystemEfficiency/core/variant}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SolarSystemEfficiency/MemoryUsage-2.21.1/src}&quot;"/>
 								</option>
 								<inputType id="io.sloeber.compiler.cpp.sketch.input.158723337" name="Sorgente CPP" superClass="io.sloeber.compiler.cpp.sketch.input"/>
 							</tool>
@@ -40,6 +41,7 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SolarSystemEfficiency/libraries/Wire/src}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SolarSystemEfficiency/core/core}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SolarSystemEfficiency/core/variant}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SolarSystemEfficiency/MemoryUsage-2.21.1/src}&quot;"/>
 								</option>
 								<inputType id="io.sloeber.compiler.c.sketch.input.1145586272" name="Sorgente C" superClass="io.sloeber.compiler.c.sketch.input"/>
 							</tool>
@@ -53,6 +55,7 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SolarSystemEfficiency/libraries/Wire/src}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SolarSystemEfficiency/core/core}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SolarSystemEfficiency/core/variant}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SolarSystemEfficiency/MemoryUsage-2.21.1/src}&quot;"/>
 								</option>
 								<inputType id="io.sloeber.compiler.S.sketch.input.172443293" name="Sorgente Assembly" superClass="io.sloeber.compiler.S.sketch.input"/>
 							</tool>

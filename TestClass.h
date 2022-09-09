@@ -9,6 +9,8 @@
 #include "Arduino.h"
 //add your includes for the project TestLibrary here
 
+#include "RTClib.h"
+
 //end of add your includes here
 
 
@@ -23,6 +25,7 @@ typedef struct {
 
 
 void Clock();
+void CreateFilename(String *fileName); //, DateTime now);
 void setStringToSave(String *dataToSave, const VALUE_T *data);
 void showValues(VALUE_T data);
 

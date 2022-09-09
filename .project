@@ -32,6 +32,11 @@
 	</natures>
 	<linkedResources>
 		<link>
+			<name>MemoryUsage-2.21.1</name>
+			<type>2</type>
+			<location>C:/Users/franc/Documents/Arduino/libraries/MemoryUsage-2.21.1</location>
+		</link>
+		<link>
 			<name>core/core</name>
 			<type>2</type>
 			<locationURI>ECLIPSE_HOME/arduinoPlugin/packages/arduino/hardware/avr/1.8.5/cores/arduino</locationURI>

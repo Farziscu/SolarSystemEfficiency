@@ -19,6 +19,9 @@ RM := rm -f
 -include libraries\Adafruit_Unified_Sensor-1.1.6\subdir.mk
 -include core\core\subdir.mk
 -include MyLibrary\subdir.mk
+-include MemoryUsage-2.21.1\src\subdir.mk
+-include MemoryUsage-2.21.1\examples\Stack\subdir.mk
+-include MemoryUsage-2.21.1\examples\FreeRam\subdir.mk
 -include objects.mk
 
 ifneq ($(MAKECMDGOALS),clean)
